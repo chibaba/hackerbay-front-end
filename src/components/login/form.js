@@ -21,16 +21,14 @@ const showField = ({
   input,
   label,
   type,
-  meta: { touched },
+  meta: { touched, error },
 }) => (
   <FormGroup bssize="large">
   <Label>{label}</Label>
   <input
   className="form-control"
   {...input}
-  <input
-   className="form-control"
-   {...input}
+  
    placeholder={label}
    type={type}
    />
