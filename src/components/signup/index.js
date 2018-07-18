@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import LoginForm from '../login/Form';
+
 
 class  Signup extends Component {
   state = {
@@ -16,7 +18,22 @@ class  Signup extends Component {
       });
     })
     .catch(error => {
-      this.setState({ isFetching: false, message: error});
+      this.setState({ isFetch: false, message: error});
     });
   };
-}
+  render () {
+    const { isFetch, message } = this.state;
+    return ( <div className="login container">
+    <h4 className="text-center">SignUp</h4>
+    <LoginForm onSubmit={this.submit}
+    submitLabel="signUp"
+    isFetching={isFetching}
+    message={message}
+    />
+
+      </div>
+      );
+  }
+};
+
+ export default Signup
