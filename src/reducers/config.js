@@ -1,5 +1,5 @@
 import { Record } from 'immutable';
-import createReducers from '../utils/createReducers';
+import createReducers from '../store/createReducers';
 
 const Form = Record({});
 

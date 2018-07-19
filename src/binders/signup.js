@@ -2,9 +2,9 @@ import connect from 'react-redux';
 
 import { bindActionCreators } from 'redux';
 
-import SignUp from '../components/signUp';
+import SignUp from '../components/signup';
 
-import onSignUp from '../actions/auth';
+import onSignUp from '../actions/index';
 
 function mapDispatchToProps(dispatch) {
   return {

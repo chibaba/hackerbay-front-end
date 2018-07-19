@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import configure from './configure';
-import auth from './reducers/auth';
+import configure from './config';
+import auth from './auth';
 
 const appReducer = combineReducers({
   configure,

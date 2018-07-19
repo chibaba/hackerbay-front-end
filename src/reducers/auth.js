@@ -1,5 +1,5 @@
 import { Record } from 'immutable';
-import types from '../medium/auth';
+import varies from '../medium/auth';
 import createReducers from '../store/createReducers';
 
 const Form = Record({
@@ -10,10 +10,10 @@ const Form = Record({
 const initialState = new Form();
 
 export default createReducers(initialState, {
-  [types.ON_LOGIN_SUCCESS]: (state, { token }) => {
+  [varies.ON_LOGIN_SUCCESS]: (state, { token }) => {
     return state.set('isLogin', true).set('token', token);
   },
-  [types.ON_SIGN_UP_SUCCESS]: (state, { token }) => {
+  [varies.ON_SIGN_UP_SUCCESS]: (state, { token }) => {
     return state.set('isLogin', true).set('token', token);
   },
 });
