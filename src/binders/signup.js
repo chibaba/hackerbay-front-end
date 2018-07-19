@@ -1,10 +1,14 @@
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 
 import { bindActionCreators } from 'redux';
 
 import SignUp from '../components/signup';
 
-import onSignUp from '../actions/index';
+import { onSignUp } from '../actions/index';
+
+function mapStateToProps() {
+  return {}
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -13,6 +17,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-//  mapStateToProps,
+  mapStateToProps,
   mapDispatchToProps
 )(SignUp);

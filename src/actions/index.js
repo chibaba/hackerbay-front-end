@@ -1,5 +1,8 @@
 import axios from 'axios';
 import varies from '../medium/auth';
+//import onLogin from '../actions/index';
+//import onSignUp from '../actions/index';
+
 
 const BASE_API_URL = 'http://localhost:3000';
 

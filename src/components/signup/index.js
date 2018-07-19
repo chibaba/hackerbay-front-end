@@ -27,7 +27,7 @@ class  Signup extends Component {
     <h4 className="text-center">SignUp</h4>
     <LoginForm onSubmit={this.submit}
     submitLabel="signUp"
-    isFetching={isFetching}
+    isFetch={isFetch}
     message={message}
     />
 

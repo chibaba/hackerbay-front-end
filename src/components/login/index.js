@@ -4,19 +4,19 @@ import LoginForm from  './form';
 
 class Login extends Component {
   state = {
-  isFetching: false,
+  isFetch: false,
   message: null,
   };
   submit = values => {
     this.props.actions
       .onLogin(values)
       .then(response => {
-        this.setState({ isFetching: false, message: null}, () =>{
+        this.setState({ isFetch: false, message: null}, () =>{
           this.props.history.push('/about')
         });
       })
       .catch(error => {
-        this.setState({ isFetching: false, message: error});
+        this.setState({ isFetch: false, message: error});
       });
   };
 
@@ -27,7 +27,7 @@ class Login extends Component {
         <h3 className="text-center">Login</h3>
         <LoginForm
         onSubmit={this.submit}
-        isFetching={isFetching}
+        isFetch={isFetch}
         message={message}
         />
         </div>
