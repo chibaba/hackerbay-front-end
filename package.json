@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@types/reactstrap": "^6.0.0",
+    "@types/redux-form": "^7.4.1",
+    "immutable": "^3.8.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -11,6 +13,7 @@
     "react-scripts": "1.0.17",
     "reactstrap": "^6.3.0",
     "redux": "^3.7.2",
+    "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.5.3"
   },
@@ -19,5 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0"
   }
 }

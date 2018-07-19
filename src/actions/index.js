@@ -1,12 +1,47 @@
-export const FETCH_DATA = 'fetch_data';
+import axios from 'axios';
+import varies from '../medium/auth';
 
-// default function to display redux action format
-export function defaultFunction() {
-    let testVar = 'Hello';
+//const BASE_API_URL = 'http://localhost:3000';
 
-    // action object format being return to a reducer
-    return {
-        type: FETCH_DATA,
-        payload: testVar
-    }
-}
+axios.defaults.baseURL = BASE_API_URL;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+export const onLogin = params => dispatch => {
+  dispatch({ varies: varies.ON_LOGIN_REQUEST });
+
+  return axios
+    .post('/login', params, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(response => {
+      dispatch({ varies: varies.ON_LOGIN_SUCCESS, token: response.data.token });
+      return Promise.resolve(response.data);
+    })
+    .catch(error => {
+      dispatch({ type: types.ON_LOGIN_FAILURE });
+      return Promise.reject(error.response.data.error);
+    });
+};
+
+export const onSignUp = params => dispatch => {
+  dispatch({ type: types.ON_SIGN_UP_REQUEST });
+
+  return axios
+    .post('/user/signup', params, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(response => {
+      dispatch({ type: types.ON_SIGN_UP_SUCCESS, token: response.data.token });
+      console.log(response.data);
+      return Promise.resolve(response.data);
+    })
+    .catch(error => {
+      dispatch({ type: types.ON_SIGN_UP_FAILURE });
+      console.log(error.response);
+      return Promise.reject(error.response.data.error);
+    });
+};
