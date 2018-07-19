@@ -6,6 +6,10 @@
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
+.Login form {
+  margin: auto;
+  max-width: 350px;
+}
 
 .App-header {
   background-color: #222;

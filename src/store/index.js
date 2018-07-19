@@ -1,12 +1,8 @@
-import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
-import store from './createStore';
-import auth from '../reducers/auth';
+import createConstants from './createConstants';
+import createReducers from './createReducers';
 
-const appReducer = combineReducers({
-  store,
-  auth,
-  form: formReducer,
-});
+module.exports = {
+  createConstants,
+  createReducers,
+};
 
-export default appReducer;

@@ -6,25 +6,6 @@ const BASE_API_URL = 'http://localhost:3000';
 axios.defaults.baseURL = BASE_API_URL;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-export const onLogin = params => dispatch => {
-  dispatch({ type: varies.ON_LOGIN_REQUEST });
-
-  return axios
-    .post('/login', params, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then(response => {
-      dispatch({ type: varies.ON_LOGIN_SUCCESS, token: response.data.token });
-      return Promise.resolve(response.data);
-    })
-    .catch(error => {
-      dispatch({ type: varies.ON_LOGIN_FAILURE });
-      return Promise.reject(error.response.data.error);
-    });
-};
-
 export const onSignUp = params => dispatch => {
   dispatch({ type: varies.ON_SIGN_UP_REQUEST });
 
@@ -45,3 +26,22 @@ export const onSignUp = params => dispatch => {
       return Promise.reject(error.response.data.error);
     });
 };
+export const onLogin = params => dispatch => {
+  dispatch({ type: varies.ON_LOGIN_REQUEST });
+
+  return axios
+    .post('/login', params, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(response => {
+      dispatch({ type: varies.ON_LOGIN_SUCCESS, token: response.data.token });
+      return Promise.resolve(response.data);
+    })
+    .catch(error => {
+      dispatch({ type: varies.ON_LOGIN_FAILURE });
+      return Promise.reject(error.response.data.error);
+    });
+};
+
