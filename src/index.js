@@ -14,7 +14,7 @@ import concas from './store/createStore';
 const store = concas;
 
 ReactDOM.render(
-    <Provider store={store}>
+<Provider store={store}>
         <App />
     </Provider>
     , document.getElementById('root'));
