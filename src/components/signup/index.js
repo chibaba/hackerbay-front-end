@@ -1,39 +1,75 @@
-import React, { Component } from 'react';
+// @flow
+import React from 'react';
+import styled from 'styled-components';
+import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router-dom';
+import {
+  Form,
+  Button,
+  Icon
+} from 'antd';
+import { renderField } from '../../components/common/form/field';
+import FormInfo from '../../components/common/form/info';
+import { required, minLength, email } from '../../utils/validation';
 
-import LoginForm from '../login/form';
+const { Item: FormItem } = Form;
+const minLength8 = minLength(8);
 
+const Heading = styled.h2`
+  width: 100%;
+  text-align: center;
+`;
 
-class  Signup extends Component {
-  state = {
-    isFetch: false,
-    message: null
-  };
+const SignupButton = styled(Button)`
+  width: 100%;
+`;
 
-  submit = values => {
-    this.props.actions
-    .onSignUp(values)
-    .then(response => {
-      this.setState({isFetch: false, message: null },   () => {
-        this.props.history.push('/about')
-      });
-    })
-    .catch(error => {
-      this.setState({ isFetch: false, message: error});
-    });
-  };
-  render () {
-    const { isFetch, message } = this.state;
-    return ( <div className="login container">
-    <h4 className="text-center">SignUp</h4>
-    <LoginForm onSubmit={this.submit}
-    submitLabel="signUp"
-    isFetch={isFetch}
-    message={message}
-    />
+type Props = {
+  handleSubmit: Function,
+  pristine: boolean,
+  submitting: boolean,
+  signupFormData: { error: string }
+}
 
-      </div>
-      );
-  }
+const Signup = (props: Props) => {
+  const { handleSubmit, pristine, submitting, signupFormData: { error } } = props;
+  return (
+    <React.Fragment>
+      <Heading>Signup</Heading>
+      {error && <FormInfo message={error} type="error" />}
+      <form onSubmit={handleSubmit}>
+        <FormItem>
+          <Field
+            name="email"
+            label="Please enter your email"
+            type="text"
+            validate={[required, email]}
+            component={renderField}
+            Prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            fieldTouched={!pristine}/>
+        </FormItem>
+        <FormItem>
+          <Field
+            name="password"
+            label="Please enter your password"
+            type="password"
+            validate={[required, minLength8]}
+            component={renderField}
+            Prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            fieldTouched={!pristine}/>
+        </FormItem>
+        <FormItem>
+          <SignupButton type="primary" htmlType="submit" disabled={pristine || submitting}>
+            Singup
+          </SignupButton>
+          Already have an account <Link to="/login">Login</Link>
+        </FormItem>
+      </form>
+    </React.Fragment>
+  )
 };
 
- export default Signup
+export default reduxForm({
+  form: 'signup-form'
+})(Signup);
+
