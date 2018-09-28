@@ -34,7 +34,7 @@
           </BrowserRouter>
         );
 
-        console.log("Text Component: ", component);
+        //console.log("Text Component: ", component);
         component.find('button').simulate('click');
       });
 
