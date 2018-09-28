@@ -35,12 +35,13 @@ import { BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import reducers from './reducers';
 import saga from './saga';
+import '../src/assets/css/antd.css';
 
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import './globalStyles';
 import theme from './theme';
-//import '../../assets/css/antd.css';
+
 
 const sagaMiddleware = createSagaMiddleware();
 

@@ -17,5 +17,5 @@ function* onSuccess(action) {
 
 export default function* signupSage() {
   yield takeLatest(SIGNUP, signup);
-  yield takeLatest(SIGNUP_SUCCESS, onSuccess);
+  yield takeLatest(SIGNUP_SUCCESS, onSuccess);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 };

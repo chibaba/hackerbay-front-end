@@ -22,7 +22,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import AppDecorator from './decorators';
+import AppDecorator from './decorators/index';
 import Login from '../components/login';
 import Signup from '../components/signup';
 
