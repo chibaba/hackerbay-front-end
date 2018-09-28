@@ -5,7 +5,7 @@ import {
   Input
 } from 'antd';
 
-const ErrorMessage = styled.span`
+export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.danger };
   line-height: 1.5;
   -webkit-transition: color .3s cubic-bezier(.215,.61,.355,1);

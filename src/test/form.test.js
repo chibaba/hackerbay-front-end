@@ -9,7 +9,7 @@ import Enzyme from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
 
-import { info }  from '../../src/components/common/form';
+import  Info   from '../../src/components/common/form/info';
 
 // React 16 Enzyme adapter
 Enzyme.configure({ adapter: new Adapter() });
